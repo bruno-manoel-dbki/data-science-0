@@ -18,7 +18,7 @@ import pandas as pd
 import numpy as np
 
 
-# In[169]:
+# In[2]:
 
 
 black_friday = pd.read_csv("black_friday.csv")
@@ -26,37 +26,7 @@ black_friday = pd.read_csv("black_friday.csv")
 
 # ## Inicie sua análise a partir daqui
 
-# In[20]:
-
-
-
-#black_friday.head()
-
-
-# In[196]:
-
-
-#bf_g = black_friday.groupby("Age")
-
-
-#for gender, dt in bf_g:
-#    print(gender)
-#    print(dt.count())
-#    print()
-
-#3
-
-black_friday["User_ID"].value_counts().count().item()
-
-
-#5
-#type((black_friday.isnull().sum().sort_values()[-1]/black_friday.shape[0]).item())
-
-
-
-
-
-
+# In[ ]:
 
 
 
@@ -71,7 +41,6 @@ black_friday["User_ID"].value_counts().count().item()
 
 def q1():
     # Retorne aqui o resultado da questão 1.
-    return black_friday.shape
     pass
 
 
@@ -83,9 +52,6 @@ def q1():
 
 
 def q2():
-    bf_a = black_friday[black_friday.Age == "26-35"]
-    bf = bf_a[bf_a.Gender == "F"]
-    return bf.shape[0]
     # Retorne aqui o resultado da questão 2.
     pass
 
@@ -98,7 +64,6 @@ def q2():
 
 
 def q3():
-    return black_friday["User_ID"].value_counts().count().item()
     # Retorne aqui o resultado da questão 3.
     pass
 
@@ -111,7 +76,6 @@ def q3():
 
 
 def q4():
-    return black_friday.dtypes.value_counts().count().item()
     # Retorne aqui o resultado da questão 4.
     pass
 
@@ -120,11 +84,11 @@ def q4():
 # 
 # Qual porcentagem das colunas possui ao menos um valor null (`None`, `ǸaN` etc)? Responda como um único escalar entre 0 e 1.
 
-# In[124]:
+# In[8]:
 
 
 def q5():
-    return ((black_friday.isnull().sum().sort_values()[-1]/black_friday.shape[0]).item())
+    # Retorne aqui o resultado da questão 5.
     pass
 
 
@@ -132,11 +96,10 @@ def q5():
 # 
 # Quantos valores null existem na variável (coluna) com o maior número de null? Responda como um único escalar.
 
-# In[138]:
+# In[9]:
 
 
 def q6():
-    return black_friday.isnull().sum().sort_values()[-1].item()
     # Retorne aqui o resultado da questão 6.
     pass
 
