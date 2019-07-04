@@ -11,14 +11,14 @@
 
 # ## _Set up_ da análise
 
-# In[1]:
+# In[2]:
 
 
 import pandas as pd
 import numpy as np
 
 
-# In[169]:
+# In[3]:
 
 
 black_friday = pd.read_csv("black_friday.csv")
@@ -33,7 +33,7 @@ black_friday = pd.read_csv("black_friday.csv")
 #black_friday.head()
 
 
-# In[196]:
+# In[100]:
 
 
 #bf_g = black_friday.groupby("Age")
@@ -46,20 +46,38 @@ black_friday = pd.read_csv("black_friday.csv")
 
 #3
 
-black_friday["User_ID"].value_counts().count().item()
+#black_friday["User_ID"].value_counts().count().item()
 
 
 #5
 #type((black_friday.isnull().sum().sort_values()[-1]/black_friday.shape[0]).item())
 
+#6
+#a = black_friday.Product_Category_3
+#a.values_count()
+
+#7
+
+#bf = black_friday.Product_Category_3.dropna()
+#bf.value_counts().index[0].item()
+
+#8
+#bf = black_friday.Purchase
+#bf_n = (bf-bf.min())/(bf.max()-bf.min())
+#bf_n = (bf-bf.mean())/bf.std()
 
 
+#9
+#bf = black_friday.Purchase
+#bf_n = (bf-bf.mean())/bf.std()
+#((bf_n<1)&(bf_n>-1)).value_counts()[1]
 
 
-
-
-
-
+#10
+bf_2 = black_friday.Product_Category_2
+bf_3 = black_friday.Product_Category_3
+type((bf_2.isna() & bf_3.isna()).all().item())
+    
 
 
 # ## Questão 1
@@ -149,6 +167,8 @@ def q6():
 
 
 def q7():
+    bf = black_friday.Product_Category_3.dropna()
+    return bf.value_counts().index[0].item()
     # Retorne aqui o resultado da questão 7.
     pass
 
@@ -161,6 +181,9 @@ def q7():
 
 
 def q8():
+    bf = black_friday.Purchase
+    bf_n = (bf-bf.min())/(bf.max()-bf.min())
+    return bf_n.mean()
     # Retorne aqui o resultado da questão 8.
     pass
 
@@ -173,7 +196,9 @@ def q8():
 
 
 def q9():
-    # Retorne aqui o resultado da questão 9.
+    bf = black_friday.Purchase
+    bf_n = (bf-bf.mean())/bf.std()
+    return ((bf_n<1)&(bf_n>-1)).value_counts()[1]
     pass
 
 
@@ -181,10 +206,13 @@ def q9():
 # 
 # Podemos afirmar que se uma observação é null em `Product_Category_2` ela também o é em `Product_Category_3`? Responda com um bool (`True`, `False`).
 
-# In[13]:
+# In[96]:
 
 
 def q10():
-    # Retorne aqui o resultado da questão 10.
+    bf_2 = black_friday.Product_Category_2
+    bf_3 = black_friday.Product_Category_3
+    return False
+
     pass
 
